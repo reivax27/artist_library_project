@@ -1,2 +1,2 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h2><%= @album.name%> by <%= @album.artist.name %></h2>
+<p>There are <%= @album.artist.albums.size %> other albums by <%= @album.artist.name %>.</p>
