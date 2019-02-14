@@ -1,2 +1,30 @@
-<h1>Search#results</h1>
-<p>Find me in app/views/search/results.html.erb</p>
+<h1>Search Results</h1>
+
+<h2>Your query for "<%= @query %>" returned: </h2>
+
+<h3><%= pluralize(@artists.size, 'artist' ) %>: <h3>
+<ul>
+  <% @artists.each do |artist| %>
+    <li><%= link_to artist.name, artist %> aka <%= artist.alias %>.</li>
+  <% end %>
+</ul>
+
+<h3><%= pluralize(@albums.size, 'album' ) %>: <h3>
+<ul>
+  <% @albums.each do |album| %>
+    <li>"<%= link_to album.name, album %>" by <%= link_to album.artist.name, album.artist %></li>
+  <% end %>
+</ul>
+
+<h3><%= pluralize(@songs.size, 'song' ) %>: <h3>
+<ul>
+  <% @songs.each do |song| %>
+    <li>"<%= link_to song.title, song %>" by <%= link_to song.artist.name, song.artist %></li>
+  <% end %>
+</ul>
+
+
+
+
+
+
