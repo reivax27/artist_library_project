@@ -9,7 +9,7 @@
 <h4>All the songs</h4>
 <ul>
   <% @artist.songs.each do |song| %>
-    <li>Title: <%= song.title %></li>
+    <li>Title: <%= link_to song.title, song %></li>
     <li>Description: <%= song.description %>
     <p></p>
   <% end %>
@@ -18,7 +18,7 @@
 <h4>All the albums</h4>
 <ul>
   <% @artist.albums.each do |album| %>
-    <li><%= album.name %> which sold <%= pluralize(album.units_sold, 'unit') %>.</li>
+    <li><%= link_to album.name, album %> which sold <%= pluralize(album.units_sold, 'unit') %>.</li>
     <p></p>
   <% end %>
 </ul>
