@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:index, :show]
   resources :albums, only: [:index, :show]
 
+  get 'static/:permalink', to: 'pages#static', as: 'static'
+
   root to: 'artists#index'
 end
