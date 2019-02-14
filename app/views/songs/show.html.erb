@@ -1,2 +1,2 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<h2><%= @song.title%> by <%= @song.artist.name %></h2>
+<p>There are <%= @song.artist.songs.size %> other songs by <%= @song.artist.name %>.</p>
