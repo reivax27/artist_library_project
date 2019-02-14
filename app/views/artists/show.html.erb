@@ -1,27 +1,29 @@
 <h2><%= @artist.name %></h2>
+<div class="card" style="width: 30rem;">
+  <p class="list-group-item list-group-item-info">Also known as: <%= @artist.alias %>.</p>
 
-<p>Also known as: <%= @artist.alias %>.</p>
+  <p class="list-group-item list-group-item-info">Songs: <%= @artist.songs.size %> songs.</p>
 
-<p>Songs: <%= @artist.songs.size %> songs.</p>
-
-<p>Albums: <%= @artist.albums.size %> albums.</p>
+  <p class="list-group-item list-group-item-info">Albums: <%= @artist.albums.size %> albums.</p>
+</div>
 
 <h4>All the songs</h4>
-<ul>
-  <% @artist.songs.each do |song| %>
-    <li>Title: <%= link_to song.title, song %></li>
-    <li>Description: <%= song.description %>
-    <p></p>
-  <% end %>
-</ul>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @artist.songs.each do |song| %>
+      <li class="list-group-item list-group-item-danger">Title: "<%= link_to song.title, song %>"" | Description: <%= song.description %> </li>
+    <% end %>
+  </ul>
+</div>
 
 <h4>All the albums</h4>
-<ul>
-  <% @artist.albums.each do |album| %>
-    <li><%= link_to album.name, album %> which sold <%= pluralize(album.units_sold, 'unit') %>.</li>
-    <p></p>
-  <% end %>
-</ul>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @artist.albums.each do |album| %>
+      <li class="list-group-item list-group-item-warning">"<%= link_to album.name, album %>" which sold <%= pluralize(album.units_sold, 'unit') %>.</li>
+    <% end %>
+  </ul>
+</div>
 
 
 <p><%= link_to 'Home', artists_path %></p>

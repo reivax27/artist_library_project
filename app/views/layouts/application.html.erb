@@ -10,13 +10,14 @@
   </head>
 
   <body>
+  <div class="container">
   <header>
     <h1>Welcome to Artists Library</h1>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Albums", albums_path %></li>
-        <li><%= link_to "Songs", songs_path %></li>
+    <nav class="navbar navbar-dark bg-dark text-info" style="background-color: #000000;">
+      <ul class="nav">
+        <li class="nav-item"><%= link_to "Home", root_path %> | </li>
+        <li><%= link_to "Albums", albums_path %> | </li>
+        <li><%= link_to "Songs", songs_path %> | </li>
         <li><%= link_to "About Us", static_path(permalink: 'about-us') %></li>
       </ul>
       <%= form_tag(search_results_path, method: "get") do %>
@@ -28,5 +29,6 @@
   </header>
     <%= yield %>
     <footer>#FreeSavageThe21st</footer>
+    </div>
   </body>
 </html>

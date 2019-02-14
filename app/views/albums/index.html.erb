@@ -1,7 +1,9 @@
 <h2>All Albums</h2>
 
-<ul>
-  <% @albums.each do |album| %>
-    <li>The album "<%= link_to album.name, album %>" is by <%= link_to album.artist.name, album.artist %></li>
-  <% end %>
-</ul>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @albums.each do |album| %>
+      <li class="list-group-item list-group-item-primary">The album "<%= link_to album.name, album %>" is by <%= link_to album.artist.name, album.artist %></li>
+    <% end %>
+  </ul>
+</div>
