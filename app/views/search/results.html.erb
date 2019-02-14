@@ -3,25 +3,32 @@
 <h2>Your query for "<%= @query %>" returned: </h2>
 
 <h3><%= pluralize(@artists.size, 'artist' ) %>: </h3>
-<ul>
-  <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, artist %> aka <%= artist.alias %>.</li>
-  <% end %>
-</ul>
-
-<h3><%= pluralize(@albums.size, 'album' ) %>: </h3>
-<ul>
-  <% @albums.each do |album| %>
-    <li>"<%= link_to album.name, album %>" by <%= link_to album.artist.name, album.artist %></li>
-  <% end %>
-</ul>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @artists.each do |artist| %>
+      <li class="list-group-item list-group-item-info"><%= link_to artist.name, artist %> aka <%= artist.alias %>.</li>
+    <% end %>
+  </ul>
+</div>
 
 <h3><%= pluralize(@songs.size, 'song' ) %>: </h3>
-<ul>
-  <% @songs.each do |song| %>
-    <li>"<%= link_to song.title, song %>" by <%= link_to song.artist.name, song.artist %></li>
-  <% end %>
-</ul>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @songs.each do |song| %>
+      <li class="list-group-item list-group-item-danger">"<%= link_to song.title, song %>" by <%= link_to song.artist.name, song.artist %></li>
+    <% end %>
+  </ul>
+</div>
+
+<h3><%= pluralize(@albums.size, 'album' ) %>: </h3>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <% @albums.each do |album| %>
+      <li class="list-group-item list-group-item-warning">"<%= link_to album.name, album %>" by <%= link_to album.artist.name, album.artist %></li>
+    <% end %>
+  </ul>
+</div>
+
 
 
 
