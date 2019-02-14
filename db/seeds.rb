@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Song.destroy_all
+Album.destroy_all
+Artist.destroy_all
+
+25.times do
+  artist = Artist.create(name: Faker::FunnyName.unique.name,
+                         alias: Faker::TvShows::GameOfThrones.unique.character)
+
+  2.times do
+    artist.albums.create(name: Faker::Games::LeagueOfLegends.unique.champion,
+                         units_sold: Faker::Number.number(6))
+  end
+
+  6.times do
+    artist.songs.create(title: Faker::Superhero.unique.descriptor,
+                        description: Faker::Kpop.unique.iii_groups)
+  end
+end
+
+puts "Number of Artists: #{Artist.count}"
+puts "Number of Albums: #{Album.count}"
+puts "Number of Songs: #{Song.count}"
