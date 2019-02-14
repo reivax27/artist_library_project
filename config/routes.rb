@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/results'
   resources :pages
   resources :artists, only: [:index, :show]
   resources :songs, only: [:index, :show]
