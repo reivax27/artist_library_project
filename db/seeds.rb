@@ -13,12 +13,15 @@ Artist.destroy_all
   artist = Artist.create(name: Faker::FunnyName.unique.name,
                          alias: Faker::TvShows::GameOfThrones.unique.character)
 
-  2.times do
+  album_amount = rand(3..5)
+  song_amount = rand(7..8)
+
+  album_amount.times do
     artist.albums.create(name: Faker::Games::LeagueOfLegends.unique.champion,
                          units_sold: Faker::Number.number(6))
   end
 
-  6.times do
+  song_amount.times do
     artist.songs.create(title: Faker::Superhero.unique.descriptor,
                         description: Faker::Kpop.unique.iii_groups)
   end

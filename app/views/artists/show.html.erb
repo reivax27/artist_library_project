@@ -1,2 +1,29 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h2><%= @artist.name %></h2>
+
+<p>Also known as: <%= @artist.alias %>.</p>
+
+<p>Songs: <%= @artist.songs.size %> songs.</p>
+
+<p>Albums: <%= @artist.albums.size %> albums.</p>
+
+<h4>All the songs</h4>
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li>Title: <%= song.title %></li>
+    <li>Description: <%= song.description %>
+    <p></p>
+  <% end %>
+</ul>
+
+<h4>All the albums</h4>
+<ul>
+  <% @artist.albums.each do |album| %>
+    <li><%= album.name %> which sold <%= pluralize(album.units_sold, 'unit') %>.</li>
+    <p></p>
+  <% end %>
+</ul>
+
+
+<p><%= link_to 'Home', artists_path %></p>
+
+
