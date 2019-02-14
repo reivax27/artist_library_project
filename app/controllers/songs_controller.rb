@@ -1,9 +1,9 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.order(:title)
+    @songs = Song.includes(:artist).order(:title)
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song = Song.includes(:artist).find(params[:id])
   end
 end
